@@ -61,7 +61,7 @@ addMemberButton.addEventListener('click',function(){
     const newMemberName = document.getElementById("name").value;
     const newMemberRole = document.getElementById("role").value;
     const newMemberImage = document.getElementById("image").value;
-    
+
     let newMember = {
         memberPicture: "",
         memberName: "",
@@ -85,10 +85,12 @@ addMemberButton.addEventListener('click',function(){
         <h3>${newMember.memberName}</h3>
         <p>${newMember.memberRole}</p>   
     </div>`
+    
+    if(newMemberName.length > 1){
+        teamContainer.innerHTML += teamCard
+    }
 
-    teamContainer.innerHTML += teamCard
-
+    document.getElementById("name").value = ' '
+    document.getElementById("role").value = ' '
+    document.getElementById("image").value = ' '
 });
-
-
-console.log(teamMembers)
