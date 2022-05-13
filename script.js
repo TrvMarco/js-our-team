@@ -31,6 +31,7 @@ const teamMembers = [
         memberName: "Barbara Ramos",
         memberRole: "Graphic Designer"
     },
+
 ];
 
 const teamContainer = document.querySelector(".team-container");
@@ -51,3 +52,43 @@ for(let i = 0; i < teamMembers.length; i ++){
 
     teamContainer.innerHTML += teamCard
 }
+
+//BONUS 
+const addMemberButton = document.getElementById("addMemberButton")
+
+addMemberButton.addEventListener('click',function(){
+
+    const newMemberName = document.getElementById("name").value;
+    const newMemberRole = document.getElementById("role").value;
+    const newMemberImage = document.getElementById("image").value;
+    
+    let newMember = {
+        memberPicture: "",
+        memberName: "",
+        memberRole: "" 
+    }
+    
+    newMember.memberName = newMemberName;
+    newMember.memberRole = newMemberRole;
+    newMember.memberPicture = newMemberImage;
+
+    teamMembers.push(newMember)
+
+    const teamCard = ` 
+    <div class="team-card">
+        <div class="card-image">
+            <img src="${newMember.memberPicture}"
+                alt="${newMember.memberName}"
+            />
+        </div>
+        <div class="card-text">
+        <h3>${newMember.memberName}</h3>
+        <p>${newMember.memberRole}</p>   
+    </div>`
+
+    teamContainer.innerHTML += teamCard
+
+});
+
+
+console.log(teamMembers)
