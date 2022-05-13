@@ -85,11 +85,13 @@ addMemberButton.addEventListener('click',function(){
         <h3>${newMember.memberName}</h3>
         <p>${newMember.memberRole}</p>   
     </div>`
-    
+
+    //Controllo per non stampare schede vuote
     if(newMemberName.length > 1){
         teamContainer.innerHTML += teamCard
     }
 
+    //Svuoto campi input
     document.getElementById("name").value = ' '
     document.getElementById("role").value = ' '
     document.getElementById("image").value = ' '
